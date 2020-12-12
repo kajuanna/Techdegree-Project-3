@@ -7,6 +7,7 @@ let otherJobRole = document.getElementById("other-job-role");
 otherJobRole.style.display = "none";
 
 jobRole.addEventListener("change", (e) => {
+  //This event listner targets the job role drop down menu to block other job role until other is selected.
   if (e.target.value === "other") {
     otherJobRole.style.display = "block";
   } else {
@@ -22,6 +23,7 @@ let shirtColorsDiv = document.getElementById("shirt-colors");
 shirtColorsDiv.style.display = "none";
 
 design.addEventListener("change", (e) => {
+  //This event listner tagets the theme shirt dropdown menu. When a certain theme is selected that particualar theme color displays the theme colors for that specfic theme and vice versa.
   shirtColorsDiv.style.display = "";
 
   for (let i = 1; i < colorOption.length; i++) {
@@ -44,6 +46,7 @@ let activitiesCost = document.getElementById("activities-cost");
 let totalCost = 0;
 
 registerForActivites.addEventListener("change", (e) => {
+  //Once activity is selected the total of that activity will be added together.
   let data_cost = e.target.getAttribute("data-cost");
   data_cost = +data_cost;
 
@@ -68,6 +71,7 @@ bitcoin.style.display = "none";
 secondChild.setAttribute("selected", "selected");
 
 paymentMethod.addEventListener("change", (e) => {
+  //The payment event listener breaks downs each payment method. If one payment is selected the others are to be blocked. Each payment also has a certain amount of characters assigned.
   if (e.target.value === "credit-card") {
     creditCard.style.display = "block";
     paypal.style.display = "none";
@@ -90,6 +94,7 @@ let cvv = document.getElementById("cvv");
 let form = document.querySelector("form");
 let activities = registerForActivitesBox.getElementsByTagName("input");
 form.addEventListener("submit", (e) => {
+  //All data fields will show a invalid error/hint message if the correct characters are not sumbitted.
   let nameValue = name.value;
   let nameTest = /^[a-zA-Z,.-]+$/i.test(nameValue);
 
